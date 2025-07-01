@@ -1,9 +1,6 @@
 package com.amigoscode.person;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -14,13 +11,22 @@ public class Person {
     private Integer id;
     private String name;
     private Integer age;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private String email;
 
-    public Person() {}
+    public Person() {
+    }
 
     public Person(Integer id, String name, Integer age, Gender gender, String email) {
         this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+    }
+
+    public Person(String name, Integer age, Gender gender, String email) {
         this.name = name;
         this.age = age;
         this.gender = gender;
